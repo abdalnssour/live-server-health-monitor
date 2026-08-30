@@ -2,10 +2,11 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Query
 from fastapi.middleware.cors import CORSMiddleware
 import psutil
 import asyncio
-import json
 from datetime import datetime
 from sqlalchemy import text
 from db import engine, readings
+
+
 
 # --- FastAPI App ---
 app = FastAPI(title="Live Server Health Monitor")
@@ -20,7 +21,7 @@ app.add_middleware(
 )
 
 # --- Configuration ---
-CPU_THRESHOLD = 80.0
+CPU_THRESHOLD = 20.0
 
 # --- CPU Reading Function ---
 def get_reading():
